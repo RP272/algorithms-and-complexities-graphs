@@ -4,10 +4,11 @@
 #include <iostream>
 #include "Graph.h"
 #include "Dijkstra.h"
+#include "FileReader.h"
 
 int main()
 {
-	std::vector<int> vertices;
+	/*std::vector<int> vertices;
 	for (int i = 0; i < 6; i++)
 		vertices.push_back(i);
 
@@ -86,16 +87,13 @@ int main()
 
 	for (int i = 0; i < 6; i++) {
 		std::cout << i << " d: " << algo->dijkstra_nodes[algo->map[i]].get_dist() << " p : " << algo->p[i] << std::endl;
+	}*/
+
+	GraphFromFile r = FileReader::read("pliczek.txt");
+	std::cout << r.number_of_vertices << std::endl;
+	std::cout << r.number_of_edges << std::endl;
+	for (int i = 0; i < r.number_of_edges; i++)
+	{
+		std::cout << r.edges[i].u << " " << r.edges[i].v << " " << r.edges[i].weight << std::endl;
 	}
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

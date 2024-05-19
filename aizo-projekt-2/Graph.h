@@ -9,6 +9,7 @@ private:
 	std::vector<std::vector<int>> weights;
 	std::vector<std::vector<int>> neighbors;
 public:
+	Graph();
 	Graph(std::vector<int> vertices, std::vector<std::vector<int>> weights, std::vector<std::vector<int>> neighbors);
 	virtual std::vector<int> adjacent(int vertex_id);
 	std::vector<int> get_vertices();

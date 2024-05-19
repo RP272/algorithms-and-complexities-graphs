@@ -129,16 +129,21 @@
   <ItemGroup>
     <ClCompile Include="aizo-projekt-2.cpp" />
     <ClCompile Include="Dijkstra.cpp" />
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="GraphAdjacencyList.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="HeapNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="DijkstraVertex.h" />
+    <ClInclude Include="FileReader.h" />
     <ClInclude Include="Graph.h" />
+    <ClInclude Include="GraphAdjacencyList.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="HeapNode.h" />
+    <ClInclude Include="SuccessorNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
