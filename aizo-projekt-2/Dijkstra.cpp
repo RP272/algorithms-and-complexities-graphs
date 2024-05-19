@@ -28,11 +28,11 @@ void Dijkstra::run(Graph graph, int starting_vertex)
 		std::vector<int> neighbors = graph.adjacent(u);
 		for (int j = 0; j < neighbors.size(); j++) {
 			int v = neighbors[j];
-			if (this->dijkstra_nodes[map[v]].get_dist() > (this->dijkstra_nodes[map[u]].get_dist() + graph.weight(u, v)))
+			int new_dist = this->dijkstra_nodes[map[u]].get_dist() + graph.weight(u, v);
+			if (this->dijkstra_nodes[map[v]].get_dist() > new_dist)
 			{
-				int diff = this->dijkstra_nodes[map[v]].get_dist() - (this->dijkstra_nodes[map[u]].get_dist() + graph.weight(u, v));
 				this->p[v] = u;
-				queue->decrease_key(this->dijkstra_nodes, v, diff, map);
+				queue->change_key(this->dijkstra_nodes, v, new_dist, map);
 			}
 		}
 

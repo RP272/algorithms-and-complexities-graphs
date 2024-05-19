@@ -53,10 +53,10 @@ HeapNode MinHeap::extract_min(HeapNode* tab, std::unordered_map<int, int>& map)
 	return min;
 }
 
-void MinHeap::decrease_key(HeapNode* tab, int vertex_id, int subtract, std::unordered_map<int, int>& map)
+void MinHeap::change_key(HeapNode* tab, int vertex_id, int new_value, std::unordered_map<int, int>& map)
 {
 	int index_in_heap = map[vertex_id];
-	tab[index_in_heap].set_dist(tab[index_in_heap].get_dist() - subtract);
+	tab[index_in_heap].set_dist(new_value);
 	heap_fix_up(tab, index_in_heap, map);
 }
 
