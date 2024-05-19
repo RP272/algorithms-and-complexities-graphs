@@ -1,25 +1,40 @@
 #include "Dijkstra.h"
 #include "Heap.h"
+#include <iostream>
 
 Dijkstra::Dijkstra(Graph graph)
 {
-	this->vertex_array = new DijkstraVertex[graph.vertices_len];
-	this->len = graph.vertices_len;
+	this->dijkstra_nodes = new HeapNode[graph.get_vertices().size()];
+	this->p = new int[graph.get_vertices().size()];
+	for (int i = 0; i < graph.get_vertices().size(); i++)
+	{
+		this->map[i] = i;
+	}
 }
 
 void Dijkstra::run(Graph graph, int starting_vertex)
 {
-	for (int i = 0; i < this->len; i++) {
-		this->vertex_array[i].set_vertex_id(i);
-		this->vertex_array[i].set_d(2147483647);
-		this->vertex_array[i].set_p(-1);
+	int n = graph.get_vertices().size();
+	for (int i = 0; i < n; i++) {
+		this->dijkstra_nodes[i].set_vertex_id(i);
+		this->dijkstra_nodes[i].set_dist(2147483647);
+		this->p[i] = -1;
 	}
-	this->vertex_array[starting_vertex].set_d(0);
+	this->dijkstra_nodes[0].set_dist(0);
 
-	MinHeap<DijkstraVertex>* queue = new MinHeap<DijkstraVertex>(this->vertex_array, this->len);
+	MinHeap* queue = new MinHeap(this->dijkstra_nodes, n, map);
 	while (queue->get_len() > 0) {
-		//DijkstraVertex u = queue->extract_min();
-		
-	}
+		int u = queue->extract_min(this->dijkstra_nodes, map).get_vertex_id();
+		std::vector<int> neighbors = graph.adjacent(u);
+		for (int j = 0; j < neighbors.size(); j++) {
+			int v = neighbors[j];
+			if (this->dijkstra_nodes[map[v]].get_dist() > (this->dijkstra_nodes[map[u]].get_dist() + graph.weight(u, v)))
+			{
+				int diff = this->dijkstra_nodes[map[v]].get_dist() - (this->dijkstra_nodes[map[u]].get_dist() + graph.weight(u, v));
+				this->p[v] = u;
+				queue->decrease_key(this->dijkstra_nodes, v, diff, map);
+			}
+		}
 
+	}
 };

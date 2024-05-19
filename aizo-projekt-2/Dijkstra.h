@@ -1,18 +1,16 @@
 #ifndef DIJKSTRA_HPP
 #define DIJKSTRA_HPP
-#include "DijkstraVertex.h"
-
-class Graph{
-public:
-	int vertices_len;
-};
+#include <vector>
+#include <unordered_map>
+#include "Graph.h"
+#include "HeapNode.h"
 
 class Dijkstra
 {
-private:
-	DijkstraVertex* vertex_array;
-	int len;
 public:
+	HeapNode* dijkstra_nodes;
+	int* p;
+	std::unordered_map<int, int> map;
 	Dijkstra(Graph graph);
 	void run(Graph graph, int starting_index);
 };

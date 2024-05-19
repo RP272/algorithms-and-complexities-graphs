@@ -2,65 +2,91 @@
 //
 
 #include <iostream>
-#include "Heap.h"
-#include "DijkstraVertex.h"
-#include "PrimaVertex.h"
+#include "Graph.h"
+#include "Dijkstra.h"
 
 int main()
 {
-    DijkstraVertex* dv = new DijkstraVertex[5];
-    dv[0].set_vertex_id(0);
-    dv[0].set_d(10);
-    dv[0].set_p(-1);
+	std::vector<int> vertices;
+	for (int i = 0; i < 6; i++)
+		vertices.push_back(i);
 
-    dv[1].set_vertex_id(1);
-    dv[1].set_d(7);
-    dv[1].set_p(-1);
+	std::vector<std::vector<int>> weights;
+	std::vector<int> zero;
+	zero.push_back(0);
+	zero.push_back(2);
+	zero.push_back(0);
+	zero.push_back(5);
+	weights.push_back(zero);
 
-    dv[2].set_vertex_id(2);
-    dv[2].set_d(5);
-    dv[2].set_p(-1);
+	std::vector<int> one;
+	one.push_back(0);
+	one.push_back(0);
+	one.push_back(1);
+	one.push_back(0);
+	one.push_back(4);
+	weights.push_back(one);
 
-    dv[3].set_vertex_id(3);
-    dv[3].set_d(3);
-    dv[3].set_p(-1);
+	std::vector<int> two;
+	two.push_back(0);
+	two.push_back(0);
+	two.push_back(0);
+	two.push_back(1);
+	two.push_back(3);
+	weights.push_back(two);
 
-    dv[4].set_vertex_id(4);
-    dv[4].set_d(1);
-    dv[4].set_p(-1);
+	std::vector<int> three;
+	three.push_back(0);
+	three.push_back(0);
+	three.push_back(0);
+	three.push_back(0);
+	three.push_back(0);
+	three.push_back(3);
+	weights.push_back(three);
 
-    MinHeap<DijkstraVertex>* heap = new MinHeap<DijkstraVertex>(dv, 5);
-    for (int i = 0; i < 5; i++) {
-        std::cout << "id: " << dv[i].get_vertex_id() << " d: " << dv[i].get_d() << " p: " << dv[i].get_p() << std::endl;
-    }
-    std::cout << std::endl;
+	std::vector<int> four;
+	four.push_back(0);
+	four.push_back(0);
+	four.push_back(0);
+	four.push_back(0);
+	four.push_back(0);
+	four.push_back(3);
+	weights.push_back(four);
 
-    PrimaVertex* pv = new PrimaVertex[5];
-    pv[0].set_vertex_id(0);
-    pv[0].set_key(150);
-    pv[0].set_p(-1);
+	std::vector<std::vector<int>> neighbors;
+	std::vector<int> z;
+	z.push_back(1);
+	z.push_back(3);
+	neighbors.push_back(z);
 
-    pv[1].set_vertex_id(1);
-    pv[1].set_key(139);
-    pv[1].set_p(-1);
+	std::vector<int> o;
+	o.push_back(2);
+	o.push_back(4);
+	neighbors.push_back(o);
 
-    pv[2].set_vertex_id(2);
-    pv[2].set_key(55);
-    pv[2].set_p(-1);
+	std::vector<int> t;
+	t.push_back(3);
+	t.push_back(4);
+	neighbors.push_back(t);
 
-    pv[3].set_vertex_id(3);
-    pv[3].set_key(22);
-    pv[3].set_p(-1);
+	std::vector<int> threee;
+	threee.push_back(5);
+	neighbors.push_back(threee);
 
-    pv[4].set_vertex_id(4);
-    pv[4].set_key(10);
-    pv[4].set_p(-1);
+	std::vector<int> f;
+	f.push_back(5);
+	neighbors.push_back(f);
 
-    MinHeap<PrimaVertex>* prima_heap = new MinHeap<PrimaVertex>(pv, 5);
-    for (int i = 0; i < 5; i++) {
-        std::cout << "id: " << pv[i].get_vertex_id() << " key: " << pv[i].get_key() << " p: " << pv[i].get_p() << std::endl;
-    }
-    std::cout << std::endl;
+	std::vector<int> five;
+	neighbors.push_back(five);
+
+	Graph g(vertices, weights, neighbors);
+	Dijkstra* algo = new Dijkstra(g);
+	algo->run(g, 0);
+
+	for (int i = 0; i < 6; i++) {
+		std::cout << i << " d: " << algo->dijkstra_nodes[algo->map[i]].get_dist() << " p : " << algo->p[i] << std::endl;
+	}
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
