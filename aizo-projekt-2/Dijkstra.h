@@ -11,8 +11,8 @@ public:
 	HeapNode* dijkstra_nodes;
 	int* p;
 	std::unordered_map<int, int> map;
-	Dijkstra(Graph graph);
-	void run(Graph graph, int starting_index);
+	Dijkstra(Graph &graph);
+	void run(Graph &graph, int starting_index);
 };
 
 #endif

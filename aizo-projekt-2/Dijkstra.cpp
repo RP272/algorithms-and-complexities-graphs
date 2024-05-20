@@ -2,7 +2,7 @@
 #include "Heap.h"
 #include <iostream>
 
-Dijkstra::Dijkstra(Graph graph)
+Dijkstra::Dijkstra(Graph &graph)
 {
 	this->dijkstra_nodes = new HeapNode[graph.get_vertices().size()];
 	this->p = new int[graph.get_vertices().size()];
@@ -12,7 +12,7 @@ Dijkstra::Dijkstra(Graph graph)
 	}
 }
 
-void Dijkstra::run(Graph graph, int starting_vertex)
+void Dijkstra::run(Graph &graph, int starting_vertex)
 {
 	int n = graph.get_vertices().size();
 	for (int i = 0; i < n; i++) {

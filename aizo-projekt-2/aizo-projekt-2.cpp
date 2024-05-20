@@ -5,6 +5,7 @@
 #include "Graph.h"
 #include "Dijkstra.h"
 #include "FileReader.h"
+#include "GraphAdjacencyList.h"
 
 int main()
 {
@@ -90,10 +91,13 @@ int main()
 	}*/
 
 	GraphFromFile r = FileReader::read("pliczek.txt");
-	std::cout << r.number_of_vertices << std::endl;
+	GraphAdjacencyList* g = new GraphAdjacencyList(r);
+	g->show_graph();
+	/*std::cout << r.number_of_vertices << std::endl;
 	std::cout << r.number_of_edges << std::endl;
 	for (int i = 0; i < r.number_of_edges; i++)
 	{
 		std::cout << r.edges[i].u << " " << r.edges[i].v << " " << r.edges[i].weight << std::endl;
-	}
+	}*/
+
 }

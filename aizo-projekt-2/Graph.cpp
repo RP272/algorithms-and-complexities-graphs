@@ -1,5 +1,10 @@
 #include "Graph.h"
 
+Graph::Graph()
+{
+
+}
+
 Graph::Graph(std::vector<int> vertices, std::vector<std::vector<int>> weights, std::vector<std::vector<int>> neighbors)
 {
 	this->vertices = vertices;
