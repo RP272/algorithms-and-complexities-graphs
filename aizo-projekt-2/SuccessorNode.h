@@ -1,11 +1,13 @@
-#ifndef SUCCESSORNODE_HPP
-#define SUCCESSORNODE_HPP
+#ifndef SUCCESSORNODE_H
+#define SUCCESSORNODE_H
+#include "IterableNeighborCollection.h"
 
-struct SuccessorNode
+class SuccessorNode : public IterableNeighborCollection
 {
+public:
 	int successor_id;
 	int edge_weight;
 	SuccessorNode* next;
+	NeighborIterator& createIterator();
 };
-
 #endif

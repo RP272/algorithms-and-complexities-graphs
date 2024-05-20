@@ -91,8 +91,10 @@ int main()
 	}*/
 
 	GraphFromFile r = FileReader::read("pliczek.txt");
-	GraphAdjacencyList* g = new GraphAdjacencyList(r);
-	g->show_graph();
+	GraphAdjacencyList g = GraphAdjacencyList(r);
+	g.show_graph();
+	Dijkstra* algo = new Dijkstra(g);
+	algo->run(g, 0);
 	/*std::cout << r.number_of_vertices << std::endl;
 	std::cout << r.number_of_edges << std::endl;
 	for (int i = 0; i < r.number_of_edges; i++)

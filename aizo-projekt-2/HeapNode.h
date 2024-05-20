@@ -1,5 +1,5 @@
-#ifndef HEAPNODE_HPP
-#define HEAPNODE_HPP
+#ifndef HEAPNODE_H
+#define HEAPNODE_H
 
 class HeapNode
 {

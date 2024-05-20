@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdjacencyListNeighborIterator.cpp" />
     <ClCompile Include="aizo-projekt-2.cpp" />
     <ClCompile Include="Dijkstra.cpp" />
     <ClCompile Include="FileReader.cpp" />
@@ -134,8 +135,10 @@
     <ClCompile Include="GraphAdjacencyList.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="HeapNode.cpp" />
+    <ClCompile Include="SuccessorNode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyListNeighborIterator.h" />
     <ClInclude Include="Dijkstra.h" />
     <ClInclude Include="DijkstraVertex.h" />
     <ClInclude Include="FileReader.h" />
@@ -143,6 +146,8 @@
     <ClInclude Include="GraphAdjacencyList.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="HeapNode.h" />
+    <ClInclude Include="IterableNeighborCollection.h" />
+    <ClInclude Include="NeighborIterator.h" />
     <ClInclude Include="SuccessorNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

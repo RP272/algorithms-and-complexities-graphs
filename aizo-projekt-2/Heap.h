@@ -1,5 +1,5 @@
-#ifndef HEAP_HPP
-#define HEAP_HPP
+#ifndef HEAP_H
+#define HEAP_H
 #include <unordered_map>
 #include "HeapNode.h"
 

@@ -1,5 +1,5 @@
-#ifndef DIJKSTRA_HPP
-#define DIJKSTRA_HPP
+#ifndef DIJKSTRA_H
+#define DIJKSTRA_H
 #include <vector>
 #include <unordered_map>
 #include "Graph.h"

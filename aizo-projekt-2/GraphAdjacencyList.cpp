@@ -39,11 +39,11 @@ void GraphAdjacencyList::show_graph()
 	} 
 }
 
-std::vector<int> GraphAdjacencyList::adjacent(int vertex_id) 
+IterableNeighborCollection& GraphAdjacencyList::adjacent(int vertex_id) 
 {
-	std::vector<int> r;
-	return r;
+	return *(this->successor_list[vertex_id]);
 };
+
 std::vector<int> GraphAdjacencyList::get_vertices() 
 {
 	std::vector<int> r;
