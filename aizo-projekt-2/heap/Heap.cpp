@@ -1,6 +1,6 @@
 #include "Heap.h"
 
-MinHeap::MinHeap(HeapNode* tab, int tab_len, std::unordered_map<int, int>& map)
+MinHeap::MinHeap(HeapNode* tab, int tab_len, int* map)
 {
 	this->len = tab_len;
 	for (int i = (tab_len - 2) / 2; i >= 0; --i) {
@@ -8,7 +8,7 @@ MinHeap::MinHeap(HeapNode* tab, int tab_len, std::unordered_map<int, int>& map)
 	}
 }
 
-void MinHeap::heap_fix_down(HeapNode* tab, int index, int n, std::unordered_map<int, int>& map)
+void MinHeap::heap_fix_down(HeapNode* tab, int index, int n, int* map)
 {
 	int l = 2 * index + 1;
 	int r = 2 * index + 2;
@@ -25,7 +25,7 @@ void MinHeap::heap_fix_down(HeapNode* tab, int index, int n, std::unordered_map<
 	}
 }
 
-void MinHeap::heap_fix_up(HeapNode* tab, int index, std::unordered_map<int, int>& map)
+void MinHeap::heap_fix_up(HeapNode* tab, int index, int* map)
 {
 	int p = (index - 1) / 2;
 	if (index > 0 && tab[index].get_dist() < tab[p].get_dist())
@@ -35,7 +35,7 @@ void MinHeap::heap_fix_up(HeapNode* tab, int index, std::unordered_map<int, int>
 	}
 }
 
-void MinHeap::swap(HeapNode* tab, int a, int b, std::unordered_map<int, int>& map)
+void MinHeap::swap(HeapNode* tab, int a, int b, int* map)
 {
 	HeapNode tmp = tab[a];
 	tab[a] = tab[b];
@@ -44,7 +44,7 @@ void MinHeap::swap(HeapNode* tab, int a, int b, std::unordered_map<int, int>& ma
 	map[tab[b].get_vertex_id()] = b;
 }
 
-HeapNode MinHeap::extract_min(HeapNode* tab, std::unordered_map<int, int>& map)
+HeapNode MinHeap::extract_min(HeapNode* tab, int* map)
 {
 	HeapNode min = tab[0];
 	this->swap(tab, 0, this->len - 1, map);
@@ -53,7 +53,7 @@ HeapNode MinHeap::extract_min(HeapNode* tab, std::unordered_map<int, int>& map)
 	return min;
 }
 
-void MinHeap::change_key(HeapNode* tab, int vertex_id, int new_value, std::unordered_map<int, int>& map)
+void MinHeap::change_key(HeapNode* tab, int vertex_id, int new_value, int* map)
 {
 	int index_in_heap = map[vertex_id];
 	tab[index_in_heap].set_dist(new_value);

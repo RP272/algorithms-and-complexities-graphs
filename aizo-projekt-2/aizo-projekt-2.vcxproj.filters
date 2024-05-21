@@ -45,6 +45,9 @@
     <ClCompile Include="neighbor\Neighbor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="incidenceMatrixGraph\GraphIncidenceMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dijkstra\Dijkstra.h">
@@ -78,6 +81,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="neighbor\Neighbor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="incidenceMatrixGraph\GraphIncidenceMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

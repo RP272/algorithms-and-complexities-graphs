@@ -7,6 +7,7 @@ Dijkstra::Dijkstra(Graph &graph)
 {
 	this->dijkstra_nodes = new HeapNode[graph.get_vertices_len()];
 	this->p = new int[graph.get_vertices_len()];
+	this->map = new int[graph.get_vertices_len()];
 }
 
 void Dijkstra::run(Graph &graph, int starting_vertex)
@@ -36,6 +37,7 @@ void Dijkstra::run(Graph &graph, int starting_vertex)
 			}
 		}
 	}
+	delete queue;
 };
 
 
@@ -49,7 +51,7 @@ int* Dijkstra::get_p()
 	return this->p;
 }
 
-std::unordered_map<int, int> Dijkstra::get_map()
+int* Dijkstra::get_map()
 {
 	return this->map;
 }

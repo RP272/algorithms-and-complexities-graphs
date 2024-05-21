@@ -131,6 +131,7 @@
     <ClCompile Include="aizo-projekt-2.cpp" />
     <ClCompile Include="dijkstra\Dijkstra.cpp" />
     <ClCompile Include="fileReader\FileReader.cpp" />
+    <ClCompile Include="incidenceMatrixGraph\GraphIncidenceMatrix.cpp" />
     <ClCompile Include="graph\Graph.cpp" />
     <ClCompile Include="adjacencyListGraph\GraphAdjacencyList.cpp" />
     <ClCompile Include="heap\Heap.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="adjacencyListGraph\AdjacencyListNeighborIterator.h" />
     <ClInclude Include="dijkstra\Dijkstra.h" />
     <ClInclude Include="fileReader\FileReader.h" />
+    <ClInclude Include="incidenceMatrixGraph\GraphIncidenceMatrix.h" />
     <ClInclude Include="graph\Graph.h" />
     <ClInclude Include="adjacencyListGraph\GraphAdjacencyList.h" />
     <ClInclude Include="heap\Heap.h" />
