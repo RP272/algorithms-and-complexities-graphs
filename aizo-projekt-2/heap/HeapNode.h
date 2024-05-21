@@ -6,7 +6,6 @@ class HeapNode
 private:
 	int	vertex_id;
 	int dist;
-
 public:
 	int get_vertex_id();
 	int get_dist();

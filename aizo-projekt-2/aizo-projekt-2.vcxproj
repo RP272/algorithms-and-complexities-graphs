@@ -127,29 +127,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AdjacencyListNeighborIterator.cpp" />
+    <ClCompile Include="adjacencyListGraph\AdjacencyListNeighborIterator.cpp" />
     <ClCompile Include="aizo-projekt-2.cpp" />
-    <ClCompile Include="Dijkstra.cpp" />
-    <ClCompile Include="FileReader.cpp" />
-    <ClCompile Include="Graph.cpp" />
-    <ClCompile Include="GraphAdjacencyList.cpp" />
-    <ClCompile Include="Heap.cpp" />
-    <ClCompile Include="HeapNode.cpp" />
-    <ClCompile Include="SuccessorNode.cpp" />
+    <ClCompile Include="dijkstra\Dijkstra.cpp" />
+    <ClCompile Include="fileReader\FileReader.cpp" />
+    <ClCompile Include="graph\Graph.cpp" />
+    <ClCompile Include="adjacencyListGraph\GraphAdjacencyList.cpp" />
+    <ClCompile Include="heap\Heap.cpp" />
+    <ClCompile Include="heap\HeapNode.cpp" />
+    <ClCompile Include="neighbor\Neighbor.cpp" />
+    <ClCompile Include="adjacencyListGraph\SuccessorNode.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AdjacencyListNeighborIterator.h" />
-    <ClInclude Include="Dijkstra.h" />
-    <ClInclude Include="DijkstraVertex.h" />
-    <ClInclude Include="FileReader.h" />
-    <ClInclude Include="Graph.h" />
-    <ClInclude Include="GraphAdjacencyList.h" />
-    <ClInclude Include="Heap.h" />
-    <ClInclude Include="HeapNode.h" />
-    <ClInclude Include="IterableNeighborCollection.h" />
-    <ClInclude Include="Neighbor.h" />
-    <ClInclude Include="NeighborIterator.h" />
-    <ClInclude Include="SuccessorNode.h" />
+    <ClInclude Include="adjacencyListGraph\AdjacencyListNeighborIterator.h" />
+    <ClInclude Include="dijkstra\Dijkstra.h" />
+    <ClInclude Include="fileReader\FileReader.h" />
+    <ClInclude Include="graph\Graph.h" />
+    <ClInclude Include="adjacencyListGraph\GraphAdjacencyList.h" />
+    <ClInclude Include="heap\Heap.h" />
+    <ClInclude Include="heap\HeapNode.h" />
+    <ClInclude Include="neighbor\IterableNeighborCollection.h" />
+    <ClInclude Include="neighbor\Neighbor.h" />
+    <ClInclude Include="neighbor\NeighborIterator.h" />
+    <ClInclude Include="adjacencyListGraph\SuccessorNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

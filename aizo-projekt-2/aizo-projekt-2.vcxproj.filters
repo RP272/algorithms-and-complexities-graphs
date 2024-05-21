@@ -18,66 +18,66 @@
     <ClCompile Include="aizo-projekt-2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Dijkstra.cpp">
+    <ClCompile Include="dijkstra\Dijkstra.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Heap.cpp">
+    <ClCompile Include="heap\Heap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Graph.cpp">
+    <ClCompile Include="graph\Graph.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HeapNode.cpp">
+    <ClCompile Include="heap\HeapNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GraphAdjacencyList.cpp">
+    <ClCompile Include="adjacencyListGraph\GraphAdjacencyList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileReader.cpp">
+    <ClCompile Include="fileReader\FileReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SuccessorNode.cpp">
+    <ClCompile Include="adjacencyListGraph\SuccessorNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AdjacencyListNeighborIterator.cpp">
+    <ClCompile Include="adjacencyListGraph\AdjacencyListNeighborIterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="neighbor\Neighbor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Dijkstra.h">
+    <ClInclude Include="dijkstra\Dijkstra.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Heap.h">
+    <ClInclude Include="heap\Heap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DijkstraVertex.h">
+    <ClInclude Include="graph\Graph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Graph.h">
+    <ClInclude Include="heap\HeapNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HeapNode.h">
+    <ClInclude Include="adjacencyListGraph\GraphAdjacencyList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GraphAdjacencyList.h">
+    <ClInclude Include="adjacencyListGraph\SuccessorNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SuccessorNode.h">
+    <ClInclude Include="fileReader\FileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileReader.h">
+    <ClInclude Include="neighbor\IterableNeighborCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IterableNeighborCollection.h">
+    <ClInclude Include="neighbor\NeighborIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NeighborIterator.h">
+    <ClInclude Include="adjacencyListGraph\AdjacencyListNeighborIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AdjacencyListNeighborIterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Neighbor.h">
+    <ClInclude Include="neighbor\Neighbor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

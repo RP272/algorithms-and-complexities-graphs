@@ -1,8 +1,8 @@
 #ifndef GRAPHADJACENCYLIST_H
 #define GRAPHADJACENCYLIST_H
-#include "Graph.h"
+#include "../graph/Graph.h"
 #include "SuccessorNode.h"
-#include "FileReader.h"
+#include "../fileReader/FileReader.h"
 
 class GraphAdjacencyList : public Graph
 {
@@ -13,7 +13,6 @@ public:
 	void add_edge(int u, int v, int weight) override;
 	void show_graph() override;
 	IterableNeighborCollection& adjacent(int vertex_id) override;
-	std::vector<int> get_vertices() override;
 };
 
 #endif
