@@ -1,5 +1,6 @@
 #include "GraphIncidenceMatrix.h"
 #include "../adjacencyListGraph/SuccessorNode.h"
+#include <iomanip>
 
 GraphIncidenceMatrix::GraphIncidenceMatrix(GraphFromFile graph)
 {
@@ -70,16 +71,17 @@ void GraphIncidenceMatrix::show_graph()
 	std::cout << "Incidence Matrix:" << std::endl;
 	for (int i = 0; i < this->vertices_len; i++)
 	{
+		std::cout << i << ": ";
 		for (int j = 0; j < this->edges_counter; j++)
 		{
-			std::cout << this->incidence_matrix[i][j] << " ";
+			std::cout << std::setw(3) << this->incidence_matrix[i][j];
 		}
 		std::cout << std::endl;
 	}
-	std::cout << "Weights:" << std::endl;
+	std::cout << "Weights:" << std::endl << "   ";
 	for (int i = 0; i < this->edges_counter; i++)
 	{
-		std::cout << this->weights[i] << " ";
+		std::cout << std::setw(3) << this->weights[i];
 	}
 	std::cout << std::endl;
 };
