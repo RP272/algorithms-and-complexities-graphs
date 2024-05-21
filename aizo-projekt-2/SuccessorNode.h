@@ -1,12 +1,11 @@
 #ifndef SUCCESSORNODE_H
 #define SUCCESSORNODE_H
 #include "IterableNeighborCollection.h"
+#include "Neighbor.h"
 
-class SuccessorNode : public IterableNeighborCollection
+class SuccessorNode : public Neighbor, public IterableNeighborCollection
 {
 public:
-	int successor_id;
-	int edge_weight;
 	SuccessorNode* next;
 	NeighborIterator& createIterator();
 };

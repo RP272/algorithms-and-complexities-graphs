@@ -6,7 +6,11 @@ GraphAdjacencyList::GraphAdjacencyList(GraphFromFile graph)
 	this->successor_list = new SuccessorNode*[graph.number_of_vertices];
 	for (int i = 0; i < graph.number_of_vertices; i++)
 	{
-		this->successor_list[i] = nullptr;
+		SuccessorNode* null_node = new SuccessorNode;
+		null_node->id = -1;
+		null_node->edge_weight = -1;
+		null_node->next = nullptr;
+		this->successor_list[i] = null_node;
 	}
 
 	for (int i = 0; i < graph.number_of_edges; i++)
@@ -18,7 +22,7 @@ GraphAdjacencyList::GraphAdjacencyList(GraphFromFile graph)
 void GraphAdjacencyList::add_edge(int u, int v, int weight)
 {
 	SuccessorNode* node = new SuccessorNode;
-	node->successor_id = v;
+	node->id = v;
 	node->edge_weight = weight;
 	node->next = this->successor_list[u];
 	this->successor_list[u] = node;
@@ -32,10 +36,13 @@ void GraphAdjacencyList::show_graph()
 		std::cout << i << " -> ";
 		successor = this->successor_list[i];
 		while (successor != nullptr) {
-			std::cout << "(" << successor->successor_id << ":" << successor->edge_weight << ") -> ";
+			if (successor->id == -1) {
+				std::cout << "null" << std::endl;
+				break;
+			}
+			std::cout << "(" << successor->id << ":" << successor->edge_weight << ") -> ";
 			successor = successor->next;
 		}
-		std::cout << "nullptr" << std::endl;
 	} 
 }
 
@@ -49,4 +56,3 @@ std::vector<int> GraphAdjacencyList::get_vertices()
 	std::vector<int> r;
 	return r;
 };
-int GraphAdjacencyList::weight(int u, int v) { return 0; };

@@ -14,7 +14,6 @@ public:
 	void show_graph() override;
 	IterableNeighborCollection& adjacent(int vertex_id) override;
 	std::vector<int> get_vertices() override;
-	int weight(int u, int v) override;
 };
 
 #endif

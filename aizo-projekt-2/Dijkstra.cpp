@@ -30,14 +30,13 @@ void Dijkstra::run(Graph &graph, int starting_vertex)
 		IterableNeighborCollection& neighbors = graph.adjacent(u);
 		NeighborIterator& iterator = neighbors.createIterator();
 		while (iterator.hasMore()) {
-			int v = iterator.getNext();
-			std::cout << v << std::endl;
-			/*int new_dist = this->dijkstra_nodes[map[u]].get_dist() + graph.weight(u, v);
-			if (this->dijkstra_nodes[map[v]].get_dist() > new_dist)
+			Neighbor neighbor = iterator.getNext();
+			int new_dist = this->dijkstra_nodes[map[u]].get_dist() + neighbor.edge_weight;
+			if (this->dijkstra_nodes[map[neighbor.id]].get_dist() > new_dist)
 			{
-				this->p[v] = u;
-				queue->change_key(this->dijkstra_nodes, v, new_dist, map);
-			}*/
+				this->p[neighbor.id] = u;
+				queue->change_key(this->dijkstra_nodes, neighbor.id, new_dist, map);
+			}
 		}
 		/*for (int j = 0; j < neighbors.size(); j++) {
 			int v = neighbors[j];
@@ -48,6 +47,5 @@ void Dijkstra::run(Graph &graph, int starting_vertex)
 				queue->change_key(this->dijkstra_nodes, v, new_dist, map);
 			}
 		}*/
-
 	}
 };

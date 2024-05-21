@@ -7,7 +7,7 @@ class AdjacencyListNeighborIterator : public NeighborIterator
 public:
 	AdjacencyListNeighborIterator(SuccessorNode* ptr);
 	SuccessorNode* neighbors;
-	int getNext() override;
+	Neighbor getNext() override;
 	bool hasMore() override;
 
 };

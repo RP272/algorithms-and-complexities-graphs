@@ -95,6 +95,10 @@ int main()
 	g.show_graph();
 	Dijkstra* algo = new Dijkstra(g);
 	algo->run(g, 0);
+
+	for (int i = 0; i < 6; i++) {
+		std::cout << i << " d: " << algo->dijkstra_nodes[algo->map[i]].get_dist() << " p : " << algo->p[i] << std::endl;
+	}
 	/*std::cout << r.number_of_vertices << std::endl;
 	std::cout << r.number_of_edges << std::endl;
 	for (int i = 0; i < r.number_of_edges; i++)

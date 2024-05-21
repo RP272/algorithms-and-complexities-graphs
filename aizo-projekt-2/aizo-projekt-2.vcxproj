@@ -147,6 +147,7 @@
     <ClInclude Include="Heap.h" />
     <ClInclude Include="HeapNode.h" />
     <ClInclude Include="IterableNeighborCollection.h" />
+    <ClInclude Include="Neighbor.h" />
     <ClInclude Include="NeighborIterator.h" />
     <ClInclude Include="SuccessorNode.h" />
   </ItemGroup>

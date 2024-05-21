@@ -5,15 +5,15 @@ AdjacencyListNeighborIterator::AdjacencyListNeighborIterator(SuccessorNode* ptr)
 	this->neighbors = ptr;
 }
 
-int AdjacencyListNeighborIterator::getNext()
+Neighbor AdjacencyListNeighborIterator::getNext()
 {
-	int value = this->neighbors->successor_id;
+	Neighbor n = *(this->neighbors);
 	this->neighbors = this->neighbors->next;
-	return value;
+	return n;
 }
 
 bool AdjacencyListNeighborIterator::hasMore()
 {
-	if (this->neighbors != nullptr) return true;
+	if (this->neighbors->id != -1) return true;
 	return false;
 }

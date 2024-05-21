@@ -16,8 +16,3 @@ std::vector<int> Graph::get_vertices()
 //{
 //	return neighbors[vertex_id];
 //}
-
-int Graph::weight(int u, int v)
-{
-	return this->weights[u][v];
-}

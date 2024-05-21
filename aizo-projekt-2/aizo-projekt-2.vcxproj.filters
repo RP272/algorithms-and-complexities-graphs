@@ -77,5 +77,8 @@
     <ClInclude Include="AdjacencyListNeighborIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Neighbor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
