@@ -1,5 +1,7 @@
 #include "Neighbor.h"
 
+Neighbor::Neighbor() {};
+
 Neighbor::Neighbor(int id, int edge_weight)
 {
 	this->id = id;

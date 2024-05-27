@@ -13,13 +13,14 @@ int main()
 	GraphFromFile r = FileReader::read("pliczek.txt");
 	GraphIncidenceMatrix g = GraphIncidenceMatrix(r);
 	g.show_graph();
-	/*GraphAdjacencyList g = GraphAdjacencyList(r);
-	g.show_graph();
 	Dijkstra* algo = new Dijkstra(g);
-	algo->run(g, 0);
+	algo->run(g, 1);
 	for (int i = 0; i < 6; i++) {
 		std::cout << i << " d: " << algo->get_dijkstra_nodes()[algo->get_map()[i]].get_dist() << " p : " << algo->get_p()[i] << std::endl;
 	}
+	/*GraphAdjacencyList g = GraphAdjacencyList(r);
+	g.show_graph();
+	
 	std::cout << "############################" << std::endl;
 	algo->run(g, 1);
 	for (int i = 0; i < 6; i++) {

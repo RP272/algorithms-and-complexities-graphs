@@ -136,6 +136,8 @@
     <ClCompile Include="adjacencyListGraph\GraphAdjacencyList.cpp" />
     <ClCompile Include="heap\Heap.cpp" />
     <ClCompile Include="heap\HeapNode.cpp" />
+    <ClCompile Include="incidenceMatrixGraph\IncidenceMatrixNeighborIterator.cpp" />
+    <ClCompile Include="incidenceMatrixGraph\IncidenceMatrixNeighborCollection.cpp" />
     <ClCompile Include="neighbor\Neighbor.cpp" />
     <ClCompile Include="adjacencyListGraph\SuccessorNode.cpp" />
   </ItemGroup>
@@ -148,6 +150,8 @@
     <ClInclude Include="adjacencyListGraph\GraphAdjacencyList.h" />
     <ClInclude Include="heap\Heap.h" />
     <ClInclude Include="heap\HeapNode.h" />
+    <ClInclude Include="incidenceMatrixGraph\IncidenceMatrixNeighborIterator.h" />
+    <ClInclude Include="incidenceMatrixGraph\IncidenceMatrixNeighborCollection.h" />
     <ClInclude Include="neighbor\IterableNeighborCollection.h" />
     <ClInclude Include="neighbor\Neighbor.h" />
     <ClInclude Include="neighbor\NeighborIterator.h" />

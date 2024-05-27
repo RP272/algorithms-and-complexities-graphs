@@ -7,6 +7,7 @@ protected:
 	int id;
 	int edge_weight;
 public:
+	Neighbor();
 	Neighbor(int id, int edge_weight);
 	int get_id();
 	int get_edge_weight();

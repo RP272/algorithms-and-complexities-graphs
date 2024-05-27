@@ -1,4 +1,5 @@
 #include "GraphIncidenceMatrix.h"
+#include "IncidenceMatrixNeighborCollection.h"
 #include "../adjacencyListGraph/SuccessorNode.h"
 #include <iomanip>
 
@@ -88,6 +89,17 @@ void GraphIncidenceMatrix::show_graph()
 
 IterableNeighborCollection& GraphIncidenceMatrix::adjacent(int vertex_id) 
 {
-	SuccessorNode* successor_list = new SuccessorNode(-1, -1, nullptr);
-	return *(successor_list);
+	IncidenceMatrixNeighborCollection* neighbors = new IncidenceMatrixNeighborCollection();
+	for (int i = 0; i < this->edges_counter; i++)
+	{
+		if (this->incidence_matrix[vertex_id][i] == -1) {
+			for (int j = 0; j < this->edges_counter; j++) {
+				if (this->incidence_matrix[j][i] == 1) {
+					neighbors->add_neighbor(j, this->weights[i]);
+					break;
+				}
+			}
+		}
+	}
+	return *neighbors;
 };
