@@ -1,18 +1,20 @@
 #include "GraphAdjacencyList.h"
+#include <iostream>
 
-GraphAdjacencyList::GraphAdjacencyList(GraphFromFile graph)
+GraphAdjacencyList::GraphAdjacencyList(GraphFromFile* graph)
 {
-	this->vertices_len = graph.number_of_vertices;
-	this->successor_list = new SuccessorNode*[graph.number_of_vertices];
-	for (int i = 0; i < graph.number_of_vertices; i++)
+	this->vertices_len = graph->get_number_of_vertices();
+	this->edges_len = graph->get_edge_collection()->get_len();
+	this->successor_list = new SuccessorNode*[graph->get_number_of_vertices()];
+	for (int i = 0; i < graph->get_number_of_vertices(); i++)
 	{
-		SuccessorNode* null_node = new SuccessorNode(-1, -1, nullptr);
-		this->successor_list[i] = null_node;
+		this->successor_list[i] = new SuccessorNode(-1, -1, nullptr);
 	}
 
-	for (int i = 0; i < graph.number_of_edges; i++)
+	for (int i = 0; i < graph->get_edge_collection()->get_len(); i++)
 	{
-		this->add_edge(graph.edges[i].u, graph.edges[i].v, graph.edges[i].weight);
+		Edge e = graph->get_edge_collection()->get_edges()[i];
+		this->add_edge(e.get_start_vertex_id(), e.get_end_vertex_id(), e.get_weight());
 	}
 }
 
@@ -44,3 +46,21 @@ IterableNeighborCollection& GraphAdjacencyList::adjacent(int vertex_id)
 {
 	return *(this->successor_list[vertex_id]);
 };
+
+EdgeCollection* GraphAdjacencyList::get_edge_collection()
+{
+	Edge* edges = new Edge[this->get_edges_len()];
+	int edges_counter = 0;
+	SuccessorNode* iterator;
+	for (int i = 0; i < this->vertices_len; i++) {
+		iterator = this->successor_list[i];
+		while (iterator->get_id() != -1) {
+			edges[edges_counter].set_start_vertex_id(i);
+			edges[edges_counter].set_end_vertex_id(iterator->get_id());
+			edges[edges_counter].set_weight(iterator->get_edge_weight());
+			edges_counter++;
+			iterator = iterator->get_next();
+		}
+	}
+	return new EdgeCollection(edges, this->get_edges_len());
+}

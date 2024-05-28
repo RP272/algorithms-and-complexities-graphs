@@ -129,8 +129,12 @@
   <ItemGroup>
     <ClCompile Include="adjacencyListGraph\AdjacencyListNeighborIterator.cpp" />
     <ClCompile Include="aizo-projekt-2.cpp" />
+    <ClCompile Include="bellmanFord\BellmanFord.cpp" />
     <ClCompile Include="dijkstra\Dijkstra.cpp" />
+    <ClCompile Include="edge\EdgeCollection.cpp" />
+    <ClCompile Include="edge\Edge.cpp" />
     <ClCompile Include="fileReader\FileReader.cpp" />
+    <ClCompile Include="fileReader\GraphFromFile.cpp" />
     <ClCompile Include="incidenceMatrixGraph\GraphIncidenceMatrix.cpp" />
     <ClCompile Include="graph\Graph.cpp" />
     <ClCompile Include="adjacencyListGraph\GraphAdjacencyList.cpp" />
@@ -143,8 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="adjacencyListGraph\AdjacencyListNeighborIterator.h" />
+    <ClInclude Include="bellmanFord\BellmanFord.h" />
     <ClInclude Include="dijkstra\Dijkstra.h" />
+    <ClInclude Include="edge\EdgeCollection.h" />
+    <ClInclude Include="edge\Edge.h" />
     <ClInclude Include="fileReader\FileReader.h" />
+    <ClInclude Include="fileReader\GraphFromFile.h" />
     <ClInclude Include="incidenceMatrixGraph\GraphIncidenceMatrix.h" />
     <ClInclude Include="graph\Graph.h" />
     <ClInclude Include="adjacencyListGraph\GraphAdjacencyList.h" />

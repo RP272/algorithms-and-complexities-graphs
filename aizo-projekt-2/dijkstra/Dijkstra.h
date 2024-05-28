@@ -1,7 +1,5 @@
 #ifndef DIJKSTRA_H
 #define DIJKSTRA_H
-#include <vector>
-#include <unordered_map>
 #include "../graph/Graph.h"
 #include "../heap/HeapNode.h"
 

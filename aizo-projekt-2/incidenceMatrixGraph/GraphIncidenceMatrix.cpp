@@ -2,10 +2,11 @@
 #include "IncidenceMatrixNeighborCollection.h"
 #include "../adjacencyListGraph/SuccessorNode.h"
 #include <iomanip>
+#include <iostream>
 
-GraphIncidenceMatrix::GraphIncidenceMatrix(GraphFromFile graph)
+GraphIncidenceMatrix::GraphIncidenceMatrix(GraphFromFile* graph)
 {
-	this->vertices_len = graph.number_of_vertices;
+	this->vertices_len = graph->get_number_of_vertices();
 	this->edges_counter = 0;
 	this->weights = new int[this->edges_len];
 	this->incidence_matrix = new int* [this->vertices_len];
@@ -14,10 +15,10 @@ GraphIncidenceMatrix::GraphIncidenceMatrix(GraphFromFile graph)
 		this->incidence_matrix[i] = new int[this->edges_counter];
 	}
 
-	for (int a = 0; a < graph.number_of_edges; a++)
+	for (int a = 0; a < graph->get_edge_collection()->get_len(); a++)
 	{
-		EdgeFromFile edge = graph.edges[a];
-		this->add_edge(edge.u, edge.v, edge.weight);
+		Edge e = graph->get_edge_collection()->get_edges()[a];
+		this->add_edge(e.get_start_vertex_id(), e.get_end_vertex_id(), e.get_weight());
 	}
 }
 
@@ -103,3 +104,18 @@ IterableNeighborCollection& GraphIncidenceMatrix::adjacent(int vertex_id)
 	}
 	return *neighbors;
 };
+
+EdgeCollection* GraphIncidenceMatrix::get_edge_collection()
+{
+	Edge* edges = new Edge[this->edges_counter];
+	for (int i = 0; i < this->edges_counter; i++)
+	{
+		for (int j = 0; j < this->vertices_len; j++)
+		{
+			if (this->incidence_matrix[j][i] == -1) edges[i].set_start_vertex_id(j);
+			else if (this->incidence_matrix[j][i] == 1) edges[i].set_end_vertex_id(j);
+		}
+		edges[i].set_weight(this->weights[i]);
+	}
+	return new EdgeCollection(edges, this->edges_counter);
+}

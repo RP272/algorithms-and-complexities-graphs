@@ -54,6 +54,18 @@
     <ClCompile Include="incidenceMatrixGraph\IncidenceMatrixNeighborCollection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bellmanFord\BellmanFord.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="edge\Edge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="edge\EdgeCollection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fileReader\GraphFromFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dijkstra\Dijkstra.h">
@@ -96,6 +108,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="incidenceMatrixGraph\IncidenceMatrixNeighborCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bellmanFord\BellmanFord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="edge\Edge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="edge\EdgeCollection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fileReader\GraphFromFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
