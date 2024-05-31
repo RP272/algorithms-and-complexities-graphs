@@ -142,6 +142,7 @@
     <ClCompile Include="heap\HeapNode.cpp" />
     <ClCompile Include="incidenceMatrixGraph\IncidenceMatrixNeighborIterator.cpp" />
     <ClCompile Include="incidenceMatrixGraph\IncidenceMatrixNeighborCollection.cpp" />
+    <ClCompile Include="kruskal\Kruskal.cpp" />
     <ClCompile Include="neighbor\Neighbor.cpp" />
     <ClCompile Include="adjacencyListGraph\SuccessorNode.cpp" />
     <ClCompile Include="prim\Prim.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="heap\HeapNode.h" />
     <ClInclude Include="incidenceMatrixGraph\IncidenceMatrixNeighborIterator.h" />
     <ClInclude Include="incidenceMatrixGraph\IncidenceMatrixNeighborCollection.h" />
+    <ClInclude Include="kruskal\Kruskal.h" />
     <ClInclude Include="neighbor\IterableNeighborCollection.h" />
     <ClInclude Include="neighbor\Neighbor.h" />
     <ClInclude Include="neighbor\NeighborIterator.h" />

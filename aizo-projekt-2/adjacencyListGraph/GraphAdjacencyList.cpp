@@ -60,7 +60,7 @@ EdgeCollection* GraphAdjacencyList::get_edge_collection()
 	for (int i = 0; i < this->vertices_len; i++) {
 		iterator = this->successor_list[i];
 		while (iterator->get_id() != -1) {
-			if (this->directed == false || (this->directed == true && i < iterator->get_id())) {
+			if (this->directed == true || (this->directed == false && i < iterator->get_id())) {
 				edges[edges_counter].set_start_vertex_id(i);
 				edges[edges_counter].set_end_vertex_id(iterator->get_id());
 				edges[edges_counter].set_weight(iterator->get_edge_weight());

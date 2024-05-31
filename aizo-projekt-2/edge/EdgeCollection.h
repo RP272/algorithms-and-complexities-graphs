@@ -11,6 +11,8 @@ public:
 	EdgeCollection(Edge* edges, int len);
 	Edge* get_edges();
 	int get_len();
+	void quicksort(int l, int p);
+	int partition(int left, int right);
 };
 
 #endif

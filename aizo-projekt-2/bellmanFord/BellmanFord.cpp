@@ -22,7 +22,7 @@ void BellmanFord::run(Graph& graph, int starting_index)
 	Edge e;
 	int u, v;
 	bool any_updates;
-	for (int i = 0; i < n - 1; i++)
+	for (int i = 0; i < n; i++)
 	{
 		any_updates = false;
 		for (int j = 0; j < edge_collection->get_len(); j++)
