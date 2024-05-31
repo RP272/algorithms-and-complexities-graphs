@@ -4,12 +4,13 @@
 #include <iomanip>
 #include <iostream>
 
-GraphIncidenceMatrix::GraphIncidenceMatrix(GraphFromFile* graph)
+GraphIncidenceMatrix::GraphIncidenceMatrix(GraphFromFile* graph, bool directed)
 {
 	this->vertices_len = graph->get_number_of_vertices();
 	this->edges_counter = 0;
 	this->weights = new int[this->edges_len];
 	this->incidence_matrix = new int* [this->vertices_len];
+	this->directed = directed;
 	for (int i = 0; i < this->vertices_len; i++)
 	{
 		this->incidence_matrix[i] = new int[this->edges_counter];
@@ -51,8 +52,14 @@ void GraphIncidenceMatrix::add_edge(int u, int v, int weight)
 			this->incidence_matrix[i][j] = matrix_copy[i][j];
 		this->incidence_matrix[i][this->edges_counter-1] = 0;
 	}
-	this->incidence_matrix[u][this->edges_counter - 1] = -1;
-	this->incidence_matrix[v][this->edges_counter - 1] = 1;
+	if (this->directed) {
+		this->incidence_matrix[u][this->edges_counter - 1] = -1;
+		this->incidence_matrix[v][this->edges_counter - 1] = 1;
+	}
+	else {
+		this->incidence_matrix[u][this->edges_counter - 1] = 1;
+		this->incidence_matrix[v][this->edges_counter - 1] = 1;
+	}
 
 	this->weights = new int[this->edges_counter];
 	for (int i = 0; i < this->edges_counter-1; i++)
@@ -93,9 +100,10 @@ IterableNeighborCollection& GraphIncidenceMatrix::adjacent(int vertex_id)
 	IncidenceMatrixNeighborCollection* neighbors = new IncidenceMatrixNeighborCollection();
 	for (int i = 0; i < this->edges_counter; i++)
 	{
-		if (this->incidence_matrix[vertex_id][i] == -1) {
-			for (int j = 0; j < this->edges_counter; j++) {
-				if (this->incidence_matrix[j][i] == 1) {
+		if ((this->directed == true && this->incidence_matrix[vertex_id][i] == -1) || 
+			(this->directed == false && this->incidence_matrix[vertex_id][i] == 1)) {
+			for (int j = 0; j < this->vertices_len; j++) {
+				if (j != vertex_id && this->incidence_matrix[j][i] == 1) {
 					neighbors->add_neighbor(j, this->weights[i]);
 					break;
 				}
@@ -108,12 +116,26 @@ IterableNeighborCollection& GraphIncidenceMatrix::adjacent(int vertex_id)
 EdgeCollection* GraphIncidenceMatrix::get_edge_collection()
 {
 	Edge* edges = new Edge[this->edges_counter];
+	bool start_found;
 	for (int i = 0; i < this->edges_counter; i++)
 	{
+		start_found = false;
 		for (int j = 0; j < this->vertices_len; j++)
 		{
-			if (this->incidence_matrix[j][i] == -1) edges[i].set_start_vertex_id(j);
-			else if (this->incidence_matrix[j][i] == 1) edges[i].set_end_vertex_id(j);
+			if (this->directed == true) {
+				if (this->incidence_matrix[j][i] == -1) edges[i].set_start_vertex_id(j);
+				else if (this->incidence_matrix[j][i] == 1) edges[i].set_end_vertex_id(j);
+			}
+			else {
+				if (this->incidence_matrix[j][i] == 1 && start_found == false) {
+					edges[i].set_start_vertex_id(j);
+					start_found = true;
+				}
+				else if (this->incidence_matrix[j][i] == 1 && start_found == true) {
+					edges[i].set_end_vertex_id(j);
+				}
+			}
+			
 		}
 		edges[i].set_weight(this->weights[i]);
 	}

@@ -1,11 +1,12 @@
 #include "GraphAdjacencyList.h"
 #include <iostream>
 
-GraphAdjacencyList::GraphAdjacencyList(GraphFromFile* graph)
+GraphAdjacencyList::GraphAdjacencyList(GraphFromFile* graph, bool directed)
 {
 	this->vertices_len = graph->get_number_of_vertices();
 	this->edges_len = graph->get_edge_collection()->get_len();
 	this->successor_list = new SuccessorNode*[graph->get_number_of_vertices()];
+	this->directed = directed;
 	for (int i = 0; i < graph->get_number_of_vertices(); i++)
 	{
 		this->successor_list[i] = new SuccessorNode(-1, -1, nullptr);
@@ -22,6 +23,10 @@ void GraphAdjacencyList::add_edge(int u, int v, int weight)
 {
 	SuccessorNode* node = new SuccessorNode(v, weight, this->successor_list[u]);
 	this->successor_list[u] = node;
+	if (this->directed == false) {
+		SuccessorNode* node2 = new SuccessorNode(u, weight, this->successor_list[v]);
+		this->successor_list[v] = node2;
+	}
 }
 
 void GraphAdjacencyList::show_graph()
@@ -55,10 +60,12 @@ EdgeCollection* GraphAdjacencyList::get_edge_collection()
 	for (int i = 0; i < this->vertices_len; i++) {
 		iterator = this->successor_list[i];
 		while (iterator->get_id() != -1) {
-			edges[edges_counter].set_start_vertex_id(i);
-			edges[edges_counter].set_end_vertex_id(iterator->get_id());
-			edges[edges_counter].set_weight(iterator->get_edge_weight());
-			edges_counter++;
+			if (this->directed == false || (this->directed == true && i < iterator->get_id())) {
+				edges[edges_counter].set_start_vertex_id(i);
+				edges[edges_counter].set_end_vertex_id(iterator->get_id());
+				edges[edges_counter].set_weight(iterator->get_edge_weight());
+				edges_counter++;
+			}
 			iterator = iterator->get_next();
 		}
 	}

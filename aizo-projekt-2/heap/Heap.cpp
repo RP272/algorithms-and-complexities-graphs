@@ -13,10 +13,10 @@ void MinHeap::heap_fix_down(HeapNode* tab, int index, int n, int* map)
 	int l = 2 * index + 1;
 	int r = 2 * index + 2;
 	int minimum = index;
-	if (l < n && tab[l].get_dist() < tab[minimum].get_dist()) {
+	if (l < n && tab[l].get_value() < tab[minimum].get_value()) {
 		minimum = l;
 	}
-	if (r < n && tab[r].get_dist() < tab[minimum].get_dist()) {
+	if (r < n && tab[r].get_value() < tab[minimum].get_value()) {
 		minimum = r;
 	}
 	if (minimum != index) {
@@ -28,7 +28,7 @@ void MinHeap::heap_fix_down(HeapNode* tab, int index, int n, int* map)
 void MinHeap::heap_fix_up(HeapNode* tab, int index, int* map)
 {
 	int p = (index - 1) / 2;
-	if (index > 0 && tab[index].get_dist() < tab[p].get_dist())
+	if (index > 0 && tab[index].get_value() < tab[p].get_value())
 	{
 		this->swap(tab, index, p, map);
 		heap_fix_up(tab, p, map);
@@ -56,7 +56,7 @@ HeapNode MinHeap::extract_min(HeapNode* tab, int* map)
 void MinHeap::change_key(HeapNode* tab, int vertex_id, int new_value, int* map)
 {
 	int index_in_heap = map[vertex_id];
-	tab[index_in_heap].set_dist(new_value);
+	tab[index_in_heap].set_value(new_value);
 	heap_fix_up(tab, index_in_heap, map);
 }
 

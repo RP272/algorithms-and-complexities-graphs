@@ -144,6 +144,7 @@
     <ClCompile Include="incidenceMatrixGraph\IncidenceMatrixNeighborCollection.cpp" />
     <ClCompile Include="neighbor\Neighbor.cpp" />
     <ClCompile Include="adjacencyListGraph\SuccessorNode.cpp" />
+    <ClCompile Include="prim\Prim.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="adjacencyListGraph\AdjacencyListNeighborIterator.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="neighbor\Neighbor.h" />
     <ClInclude Include="neighbor\NeighborIterator.h" />
     <ClInclude Include="adjacencyListGraph\SuccessorNode.h" />
+    <ClInclude Include="prim\Prim.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

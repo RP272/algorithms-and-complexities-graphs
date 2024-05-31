@@ -5,12 +5,12 @@ class HeapNode
 {
 private:
 	int	vertex_id;
-	int dist;
+	int value;
 public:
 	int get_vertex_id();
-	int get_dist();
+	int get_value();
 	void set_vertex_id(int value);
-	void set_dist(int value);
+	void set_value(int value);
 };
 
 #endif

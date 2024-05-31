@@ -8,23 +8,32 @@
 #include "adjacencyListGraph/GraphAdjacencyList.h"
 #include "incidenceMatrixGraph/GraphIncidenceMatrix.h"
 #include "bellmanFord/BellmanFord.h"
+#include "prim/Prim.h"
 
 int main()
 {
 	GraphFromFile* r = FileReader::read("pliczek.txt");
-	//GraphIncidenceMatrix g = GraphIncidenceMatrix(r);
-	GraphAdjacencyList g = GraphAdjacencyList(r);
+	//GraphIncidenceMatrix g = GraphIncidenceMatrix(r, false);
+	GraphAdjacencyList g = GraphAdjacencyList(r, false);
 	g.show_graph();
-	/*Dijkstra* algo = new Dijkstra(g);
-	algo->run(g, 1);
+	Prim* algo = new Prim(g);
+	algo->run(g, 3);
 	for (int i = 0; i < 6; i++) {
-		std::cout << i << " d: " << algo->get_dijkstra_nodes()[algo->get_map()[i]].get_dist() << " p : " << algo->get_p()[i] << std::endl;
+		int weight = algo->get_prima_nodes()[algo->get_map()[i]].get_value();
+		int p = algo->get_p()[i];
+		if(p != - 1) std::cout << i << "-" << p << ":" << weight << std::endl;
+	}
+
+	/*Dijkstra* algo = new Dijkstra(g);
+	algo->run(g, 0);
+	for (int i = 0; i < 6; i++) {
+		std::cout << i << " d: " << algo->get_dijkstra_nodes()[algo->get_map()[i]].get_value() << " p : " << algo->get_p()[i] << std::endl;
 	}*/
-	BellmanFord* bellmanFord = new BellmanFord(g);
+	/*BellmanFord* bellmanFord = new BellmanFord(g);
 	bellmanFord->run(g, 0);
 	for (int i = 0; i < 6; i++) {
 		std::cout << i << " d: " << bellmanFord->get_d()[i] << " p : " << bellmanFord->get_p()[i] << std::endl;
-	}
+	}*/
 	/*GraphAdjacencyList g = GraphAdjacencyList(r);
 	g.show_graph();
 	

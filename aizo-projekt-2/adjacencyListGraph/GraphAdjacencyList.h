@@ -9,7 +9,7 @@ class GraphAdjacencyList : public Graph
 private:
 	SuccessorNode** successor_list;
 public:
-	GraphAdjacencyList(GraphFromFile* graph);
+	GraphAdjacencyList(GraphFromFile* graph, bool directed);
 	void add_edge(int u, int v, int weight) override;
 	void show_graph() override;
 	IterableNeighborCollection& adjacent(int vertex_id) override;

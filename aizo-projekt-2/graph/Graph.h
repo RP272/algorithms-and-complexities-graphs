@@ -8,6 +8,7 @@ class Graph
 protected:
 	int vertices_len;
 	int edges_len;
+	bool directed;
 public:
 	virtual IterableNeighborCollection& adjacent(int vertex_id) = 0;
 	virtual void add_edge(int u, int v, int weight) = 0;

@@ -66,6 +66,9 @@
     <ClCompile Include="fileReader\GraphFromFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="prim\Prim.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dijkstra\Dijkstra.h">
@@ -120,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="fileReader\GraphFromFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="prim\Prim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

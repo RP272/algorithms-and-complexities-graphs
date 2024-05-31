@@ -10,7 +10,7 @@ private:
 	int** incidence_matrix;
 	int* weights;
 public:
-	GraphIncidenceMatrix(GraphFromFile* graph);
+	GraphIncidenceMatrix(GraphFromFile* graph, bool directed);
 	void add_edge(int u, int v, int weight) override;
 	void show_graph() override;
 	IterableNeighborCollection& adjacent(int vertex_id) override;
