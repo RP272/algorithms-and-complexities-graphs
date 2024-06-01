@@ -1,6 +1,8 @@
 #include "GraphIncidenceMatrix.h"
 #include "IncidenceMatrixNeighborCollection.h"
-#include "../adjacencyListGraph/SuccessorNode.h"
+#include "../adjacencyListGraph/GraphAdjacencyList.h"
+#include "../adjacencyListGraph/AdjacencyListNeighborIterator.h"
+#include "../randomIntegerGenerator/RandomIntegerGenerator.h"
 #include <iomanip>
 #include <iostream>
 
@@ -20,6 +22,19 @@ GraphIncidenceMatrix::GraphIncidenceMatrix(GraphFromFile* graph, bool directed)
 	{
 		Edge e = graph->get_edge_collection()->get_edges()[a];
 		this->add_edge(e.get_start_vertex_id(), e.get_end_vertex_id(), e.get_weight());
+	}
+}
+
+GraphIncidenceMatrix::GraphIncidenceMatrix(int number_of_vertices, int number_of_edges, bool directed)
+{
+	this->vertices_len = number_of_vertices;
+	this->edges_len = number_of_edges;
+	this->directed = directed;
+	this->weights = new int[this->edges_len];
+	this->incidence_matrix = new int* [this->vertices_len];
+	for (int i = 0; i < this->vertices_len; i++)
+	{
+		this->incidence_matrix[i] = new int[this->edges_counter];
 	}
 }
 
@@ -77,7 +92,7 @@ void GraphIncidenceMatrix::add_edge(int u, int v, int weight)
 };
 void GraphIncidenceMatrix::show_graph()
 {
-	std::cout << "Incidence Matrix:" << std::endl;
+	std::cout << "Macierz incydencji:" << std::endl;
 	for (int i = 0; i < this->vertices_len; i++)
 	{
 		std::cout << i << ": ";
@@ -87,12 +102,11 @@ void GraphIncidenceMatrix::show_graph()
 		}
 		std::cout << std::endl;
 	}
-	std::cout << "Weights:" << std::endl << "   ";
+	std::cout << "Weights:" << std::endl;
 	for (int i = 0; i < this->edges_counter; i++)
 	{
-		std::cout << std::setw(3) << this->weights[i];
+		std::cout << "k" << i << ": " << this->weights[i] << std::endl;
 	}
-	std::cout << std::endl;
 };
 
 IterableNeighborCollection& GraphIncidenceMatrix::adjacent(int vertex_id) 
@@ -140,4 +154,15 @@ EdgeCollection* GraphIncidenceMatrix::get_edge_collection()
 		edges[i].set_weight(this->weights[i]);
 	}
 	return new EdgeCollection(edges, this->edges_counter);
+}
+
+bool GraphIncidenceMatrix::edge_exists(int u, int v)
+{
+	for (int i = 0; i < this->edges_counter; i++)
+	{
+		if (this->directed == true && this->incidence_matrix[u][i] == -1 && this->incidence_matrix[v][i] == 1) return true;
+		if (this->directed == false && this->incidence_matrix[u][i] == 1 && this->incidence_matrix[v][i] == 1)
+			return true;
+	}
+	return false;
 }

@@ -17,6 +17,9 @@ public:
 	virtual bool edge_exists(int u, int v) = 0;
 	int get_vertices_len();
 	int get_edges_len();
+	void set_vertices_len(int value);
+	void set_edges_len(int value);
+	void set_directed(bool value);
 };
 
 #endif
