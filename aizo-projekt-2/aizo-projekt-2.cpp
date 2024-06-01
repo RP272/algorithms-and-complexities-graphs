@@ -13,10 +13,11 @@
 
 int main()
 {
-	GraphFromFile* r = FileReader::read("pliczek.txt");
-	GraphIncidenceMatrix g = GraphIncidenceMatrix(r, false);
-	//GraphAdjacencyList g = GraphAdjacencyList(r, false);
-	g.show_graph();
+	//GraphFromFile* r = FileReader::read("pliczek.txt");
+	//GraphIncidenceMatrix g = GraphIncidenceMatrix(r, false);
+	//GraphAdjacencyList g = GraphAdjacencyList(r, true);
+	//GraphAdjacencyList g = GraphAdjacencyList(600, 99, true);
+	//g.show_graph();
 	//Prim* algo = new Prim(g);
 	//algo->run(g, 3);
 	//for (int i = 0; i < 6; i++) {
@@ -24,7 +25,7 @@ int main()
 	//	int p = algo->get_p()[i];
 	//	if(p != - 1) std::cout << i << "-" << p << ":" << weight << std::endl;
 	//}
-	Kruskal* algo = new Kruskal(g);
+	/*Kruskal* algo = new Kruskal(g);
 	algo->run(g);
 	Edge e;
 	for (int i = 0; i < algo->get_edge_collection()->get_len(); i++)
@@ -34,7 +35,7 @@ int main()
 			e = algo->get_edge_collection()->get_edges()[i];
 			std::cout << e.get_start_vertex_id() << "-" << e.get_end_vertex_id() << ":" << e.get_weight() << std::endl;
 		}
-	}
+	}*/
 
 	//Dijkstra* algo = new Dijkstra(g);
 	//algo->run(g, 0);

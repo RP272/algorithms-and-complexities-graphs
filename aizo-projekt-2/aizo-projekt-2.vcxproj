@@ -146,6 +146,7 @@
     <ClCompile Include="neighbor\Neighbor.cpp" />
     <ClCompile Include="adjacencyListGraph\SuccessorNode.cpp" />
     <ClCompile Include="prim\Prim.cpp" />
+    <ClCompile Include="randomIntegerGenerator\RandomIntegerGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="adjacencyListGraph\AdjacencyListNeighborIterator.h" />
@@ -168,6 +169,7 @@
     <ClInclude Include="neighbor\NeighborIterator.h" />
     <ClInclude Include="adjacencyListGraph\SuccessorNode.h" />
     <ClInclude Include="prim\Prim.h" />
+    <ClInclude Include="randomIntegerGenerator\RandomIntegerGenerator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

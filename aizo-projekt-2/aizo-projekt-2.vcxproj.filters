@@ -72,6 +72,9 @@
     <ClCompile Include="kruskal\Kruskal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="randomIntegerGenerator\RandomIntegerGenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dijkstra\Dijkstra.h">
@@ -132,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="kruskal\Kruskal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="randomIntegerGenerator\RandomIntegerGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
