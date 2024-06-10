@@ -16,6 +16,7 @@ public:
 	HeapNode* get_prima_nodes();
 	int* get_p();
 	int* get_map();
+	void show_mst(int vertices_len);
 };
 
 #endif

@@ -66,3 +66,19 @@ EdgeCollection* Kruskal::get_edge_collection()
 {
 	return this->edge_collection;
 }
+
+void Kruskal::show_mst()
+{
+	int sum = 0;
+	Edge e;
+	for (int i = 0; i < this->edge_collection->get_len(); i++)
+	{
+		if (this->MST[i] == true)
+		{
+			e = this->edge_collection->get_edges()[i];
+			std::cout << e.get_start_vertex_id() << "-" << e.get_end_vertex_id() << ":" << e.get_weight() << std::endl;
+			sum += e.get_weight();
+		}
+	}
+	std::cout << "Suma wag: " << sum << std::endl;
+}

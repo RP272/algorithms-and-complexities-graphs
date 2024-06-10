@@ -15,6 +15,7 @@ public:
 	HeapNode* get_dijkstra_nodes();
 	int* get_p();
 	int* get_map();
+	void show_path(int starting_vertex, int destination_vertex);
 };
 
 #endif

@@ -1,6 +1,7 @@
 #include "Prim.h"
 #include "../heap/Heap.h"
 #include <climits>
+#include <iostream>
 
 Prim::Prim(Graph& graph)
 {
@@ -57,3 +58,15 @@ int* Prim::get_map()
 	return this->map;
 }
 
+void Prim::show_mst(int vertices_len)
+{
+	int sum = 0;
+	for (int i = 0; i < vertices_len; i++)
+	{
+		int weight = this->prima_nodes[this->map[i]].get_value();
+		int p = this->p[i];
+		if(p != - 1) std::cout << p << "-" << i << ":" << weight << std::endl;
+		sum += weight;
+	}
+	std::cout << "Suma wag: " << sum << std::endl;
+}

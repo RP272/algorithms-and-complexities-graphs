@@ -15,7 +15,7 @@ GraphCollection::GraphCollection(int number_of_vertices, int density_in_percenta
 
 	int counter = 0;
 	int v1, v2, weight;
-	RandomIntegerGenerator random_weight(1, INT_MAX);
+	RandomIntegerGenerator random_weight(1, 1000);
 	RandomIntegerGenerator random_vertex(0, number_of_vertices - 1);
 
 	int root_index = random_vertex.generate();

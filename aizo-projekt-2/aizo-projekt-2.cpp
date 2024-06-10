@@ -15,7 +15,7 @@
 int main()
 {
 	int main_menu = 0, sub_menu;
-	int number_of_vertices, density, starting_vertex;
+	int number_of_vertices, density, starting_vertex, end_vertex;
 	std::string filename;
 	GraphCollection* graph_collection = new GraphCollection(10, 0, false);
 	GraphFromFile* r;
@@ -80,24 +80,21 @@ int main()
 				{
 					std::cout << "Podaj wierzcholek startowy: ";
 					std::cin >> starting_vertex;
-					if (starting_vertex < 0 || starting_vertex >= graph_collection->get_adjacency_list()->get_vertices_len()) {
+					int vertices_len = graph_collection->get_adjacency_list()->get_vertices_len();
+					if (starting_vertex < 0 || starting_vertex >= vertices_len) {
 						std::cout << "Numer wierzcholka poza zakresem." << std::endl;
 						break;
 					}
 					Prim* prim = new Prim(*graph_collection->get_adjacency_list());
-					prim->run(*graph_collection->get_adjacency_list(), 0);
+					prim->run(*graph_collection->get_adjacency_list(), starting_vertex);
+					prim->show_mst(vertices_len);
 				}
 				break;
 				case 5:
 				{
-					std::cout << "Podaj wierzcholek startowy: ";
-					std::cin >> starting_vertex;
-					if (starting_vertex < 0 || starting_vertex >= graph_collection->get_adjacency_list()->get_vertices_len()) {
-						std::cout << "Numer wierzcholka poza zakresem." << std::endl;
-						break;
-					}
-					BellmanFord* bellmanFord = new BellmanFord(*graph_collection->get_adjacency_list());
-					bellmanFord->run(*graph_collection->get_adjacency_list(), 0);
+					Kruskal* kruskal = new Kruskal(*graph_collection->get_adjacency_list());
+					kruskal->run(*graph_collection->get_adjacency_list());
+					kruskal->show_mst();
 				}
 				break;
 				case 6:
@@ -122,7 +119,7 @@ int main()
 					std::cout << "Podaj nazwe pliku: ";
 					std::cin >> filename;
 					GraphFromFile* r = FileReader::read(filename);
-					graph_collection = new GraphCollection(r, false);
+					graph_collection = new GraphCollection(r, true);
 					std::cout << "Graf zostal zapisany w pamieci." << std::endl;
 				}
 				break;
@@ -132,7 +129,7 @@ int main()
 					std::cin >> number_of_vertices;
 					std::cout << std::endl << "Podaj gestosc grafu: ";
 					std::cin >> density;
-					graph_collection = new GraphCollection(number_of_vertices, density, false);
+					graph_collection = new GraphCollection(number_of_vertices, density, true);
 					std::cout << "Graf zostal zapisany w pamieci." << std::endl;
 				}
 				break;
@@ -143,9 +140,44 @@ int main()
 				}
 				break;
 				case 4:
-					break;
+				{
+					std::cout << "Podaj wierzcholek startowy: ";
+					std::cin >> starting_vertex;
+					if (starting_vertex < 0 || starting_vertex >= graph_collection->get_adjacency_list()->get_vertices_len()) {
+						std::cout << "Numer wierzcholka poza zakresem." << std::endl;
+						break;
+					}
+					std::cout.flush();
+					std::cout << "Podaj wierzcholek koncowy: ";
+					std::cin >> end_vertex;
+					if (end_vertex < 0 || end_vertex >= graph_collection->get_adjacency_list()->get_vertices_len()) {
+						std::cout << "Numer wierzcholka poza zakresem." << std::endl;
+						break;
+					}
+					Dijkstra* dijkstra = new Dijkstra(*graph_collection->get_adjacency_list());
+					dijkstra->run(*graph_collection->get_adjacency_list(), starting_vertex);
+					dijkstra->show_path(starting_vertex, end_vertex);
+				}
+				break;
 				case 5:
-					break;
+				{
+					std::cout << "Podaj wierzcholek startowy: ";
+					std::cin >> starting_vertex;
+					if (starting_vertex < 0 || starting_vertex >= graph_collection->get_adjacency_list()->get_vertices_len()) {
+						std::cout << "Numer wierzcholka poza zakresem." << std::endl;
+						break;
+					}
+					std::cout << "Podaj wierzcholek koncowy: ";
+					std::cin >> end_vertex;
+					if (end_vertex < 0 || end_vertex >= graph_collection->get_adjacency_list()->get_vertices_len()) {
+						std::cout << "Numer wierzcholka poza zakresem." << std::endl;
+						break;
+					}
+					BellmanFord* bellmanFord = new BellmanFord(*graph_collection->get_adjacency_list());
+					bellmanFord->run(*graph_collection->get_adjacency_list(), starting_vertex);
+					bellmanFord->show_path(starting_vertex, end_vertex);
+				}
+				break;
 				case 6:
 					break;
 				}

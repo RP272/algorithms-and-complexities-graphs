@@ -51,3 +51,22 @@ int* BellmanFord::get_p()
 {
 	return this->p;
 }
+
+void BellmanFord::show_path(int starting_vertex, int destination_vertex)
+{
+	int sum = this->d[destination_vertex];
+	if (sum == INT_MAX)
+	{
+		std::cout << "Brak sciezki" << std::endl;
+		return;
+	}
+	int idx = destination_vertex;
+	std::cout << destination_vertex << " <- ";
+	while (this->p[idx] != -1)
+	{
+		std::cout << this->p[idx];
+		if (this->p[idx] != starting_vertex) std::cout << " <- ";
+		idx = this->p[idx];
+	}
+	std::cout << std::endl << "Suma wag: " << sum << std::endl;
+}

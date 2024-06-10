@@ -17,6 +17,7 @@ public:
 	void Union(int u, int v);
 	bool* get_MST();
 	EdgeCollection* get_edge_collection();
+	void show_mst();
 };
 
 #endif

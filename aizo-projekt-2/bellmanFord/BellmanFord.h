@@ -13,6 +13,7 @@ public:
 	void run(Graph& graph, int starting_index);
 	int* get_d();
 	int* get_p();
+	void show_path(int starting_vertex, int destination_vertex);
 };
 
 #endif
