@@ -25,6 +25,16 @@ GraphIncidenceMatrix::GraphIncidenceMatrix(GraphFromFile* graph, bool directed)
 	}
 }
 
+GraphIncidenceMatrix::~GraphIncidenceMatrix()
+{
+	for (int i = 0; i < this->vertices_len; i++)
+	{
+		delete[] this->incidence_matrix[i];
+	}
+	delete[] this->incidence_matrix;
+	delete[] this->weights;
+}
+
 GraphIncidenceMatrix::GraphIncidenceMatrix(int number_of_vertices, int number_of_edges, bool directed)
 {
 	this->vertices_len = number_of_vertices;

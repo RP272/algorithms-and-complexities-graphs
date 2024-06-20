@@ -10,6 +10,7 @@ private:
 	GraphIncidenceMatrix* incidence_matrix;
 public:
 	GraphCollection() {};
+	~GraphCollection();
 	GraphCollection(GraphFromFile* graph, bool directed);
 	GraphCollection(int number_of_vertices, int density_in_percentage, bool directed);
 	GraphAdjacencyList* get_adjacency_list();

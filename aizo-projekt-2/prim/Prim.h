@@ -12,6 +12,7 @@ private:
 	bool* in_queue;
 public:
 	Prim(Graph& graph);
+	~Prim();
 	void run(Graph& graph, int starting_vertex);
 	HeapNode* get_prima_nodes();
 	int* get_p();

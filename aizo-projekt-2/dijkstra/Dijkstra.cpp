@@ -10,6 +10,13 @@ Dijkstra::Dijkstra(Graph &graph)
 	this->map = new int[graph.get_vertices_len()];
 }
 
+Dijkstra::~Dijkstra()
+{
+	delete[] this->dijkstra_nodes;
+	delete[] this->p;
+	delete[] this->map;
+}
+
 void Dijkstra::run(Graph &graph, int starting_vertex)
 {
 	// In this case HeapNode's value is distance from starting vertex
@@ -37,6 +44,8 @@ void Dijkstra::run(Graph &graph, int starting_vertex)
 				queue->change_key(this->dijkstra_nodes, neighbor.get_id(), new_dist, map);
 			}
 		}
+		neighbors.destroy();
+		delete& iterator;
 	}
 	delete queue;
 };

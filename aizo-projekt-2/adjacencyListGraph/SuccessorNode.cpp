@@ -16,3 +16,5 @@ SuccessorNode* SuccessorNode::get_next()
 {
 	return this->next;
 }
+
+void SuccessorNode::destroy() {};

@@ -12,6 +12,14 @@ Kruskal::Kruskal(Graph& graph)
 	}
 }
 
+Kruskal::~Kruskal()
+{
+	delete[] this->rank;
+	delete[] this->parent;
+	delete[] this->MST;
+	delete this->edge_collection;
+}
+
 void Kruskal::run(Graph& graph)
 {
 	int n = graph.get_vertices_len();

@@ -10,6 +10,7 @@ private:
 
 public:
 	BellmanFord(Graph& graph);
+	~BellmanFord();
 	void run(Graph& graph, int starting_index);
 	int* get_d();
 	int* get_p();

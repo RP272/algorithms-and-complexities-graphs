@@ -1,4 +1,5 @@
 #include "GraphCollection.h"
+#include <iostream>
 #include "../randomIntegerGenerator/RandomIntegerGenerator.h"
 
 GraphCollection::GraphCollection(GraphFromFile* graph, bool directed)
@@ -7,12 +8,18 @@ GraphCollection::GraphCollection(GraphFromFile* graph, bool directed)
 	this->incidence_matrix = new GraphIncidenceMatrix(graph, directed);
 }
 
+GraphCollection::~GraphCollection()
+{
+	delete this->adjacency_list;
+	delete this->incidence_matrix;
+}
+
 GraphCollection::GraphCollection(int number_of_vertices, int density_in_percentage, bool directed)
 {
 	int number_of_edges = (density_in_percentage * ((number_of_vertices * (number_of_vertices - 1)) / 2)) / 100;
 	this->adjacency_list = new GraphAdjacencyList(number_of_vertices, number_of_edges, directed);
 	this->incidence_matrix = new GraphIncidenceMatrix(number_of_vertices, number_of_edges, directed);
-
+	const int n = number_of_vertices;
 	int counter = 0;
 	int v1, v2, weight;
 	RandomIntegerGenerator random_weight(1, 1000);
@@ -33,7 +40,7 @@ GraphCollection::GraphCollection(int number_of_vertices, int density_in_percenta
 		do {
 			v1 = random_vertex.generate();
 			v2 = random_vertex.generate();
-		} while (v1 == v2 || this->adjacency_list->edge_exists(v1, v2));
+	} while (v1 == v2 || this->adjacency_list->edge_exists(v1, v2));
 		weight = random_weight.generate();
 		this->adjacency_list->add_edge(v1, v2, weight);
 		this->incidence_matrix->add_edge(v1, v2, weight);

@@ -11,6 +11,7 @@ private:
 	int* weights;
 public:
 	GraphIncidenceMatrix(GraphFromFile* graph, bool directed);
+	~GraphIncidenceMatrix();
 	GraphIncidenceMatrix(int number_of_vertices, int number_of_edges, bool directed);
 	void add_edge(int u, int v, int weight) override;
 	void show_graph() override;

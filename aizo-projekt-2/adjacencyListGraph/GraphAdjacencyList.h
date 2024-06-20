@@ -10,6 +10,7 @@ private:
 	SuccessorNode** successor_list;
 public:
 	GraphAdjacencyList(GraphFromFile* graph, bool directed);
+	~GraphAdjacencyList();
 	GraphAdjacencyList(int number_of_vertices, int number_of_edges, bool directed);
 	void add_edge(int u, int v, int weight) override;
 	void show_graph() override;

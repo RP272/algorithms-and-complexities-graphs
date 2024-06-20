@@ -10,6 +10,7 @@ private:
 	int len;
 public:
 	IncidenceMatrixNeighborCollection();
+	void destroy() override;
 	NeighborIterator& createIterator() override;
 	void add_neighbor(int vertex_id, int edge_weight);
 	Neighbor* get_array();

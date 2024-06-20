@@ -11,5 +11,6 @@ public:
 	SuccessorNode(int id, int edge_weight, SuccessorNode* next);
 	NeighborIterator& createIterator() override;
 	SuccessorNode* get_next();
+	void destroy() override;
 };
 #endif

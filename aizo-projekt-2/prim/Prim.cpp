@@ -11,6 +11,14 @@ Prim::Prim(Graph& graph)
 	this->in_queue = new bool[graph.get_vertices_len()];
 }
 
+Prim::~Prim()
+{
+	delete[] this->prima_nodes;
+	delete[] this->p;
+	delete[] this->map;
+	delete[] this->in_queue;
+}
+
 void Prim::run(Graph& graph, int starting_vertex)
 {
 	int n = graph.get_vertices_len();
@@ -40,7 +48,9 @@ void Prim::run(Graph& graph, int starting_vertex)
 				queue->change_key(this->prima_nodes, v, w, this->map);
 			}
 		}
+		neighbors.destroy();
 	}
+	delete queue;
 }
 
 HeapNode* Prim::get_prima_nodes()

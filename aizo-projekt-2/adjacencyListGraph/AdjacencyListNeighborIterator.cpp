@@ -5,6 +5,8 @@ AdjacencyListNeighborIterator::AdjacencyListNeighborIterator(SuccessorNode* ptr)
 	this->neighbors = ptr;
 }
 
+AdjacencyListNeighborIterator::~AdjacencyListNeighborIterator() {};
+
 Neighbor AdjacencyListNeighborIterator::getNext()
 {
 	Neighbor n = *(this->neighbors);

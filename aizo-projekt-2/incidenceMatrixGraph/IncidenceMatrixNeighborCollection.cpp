@@ -7,6 +7,11 @@ IncidenceMatrixNeighborCollection::IncidenceMatrixNeighborCollection()
 	this->len = 0;
 };
 
+void IncidenceMatrixNeighborCollection::destroy()
+{
+	delete[] this->array;
+}
+
 NeighborIterator& IncidenceMatrixNeighborCollection::createIterator()
 {
 	IncidenceMatrixNeighborIterator* iterator = new IncidenceMatrixNeighborIterator(this);

@@ -8,6 +8,7 @@ private:
 	SuccessorNode* neighbors;
 public:
 	AdjacencyListNeighborIterator(SuccessorNode* ptr);
+	~AdjacencyListNeighborIterator();
 	Neighbor getNext() override;
 	bool hasMore() override;
 };

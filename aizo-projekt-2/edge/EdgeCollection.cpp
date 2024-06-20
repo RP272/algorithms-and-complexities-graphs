@@ -6,6 +6,11 @@ EdgeCollection::EdgeCollection(Edge* edges, int len)
 	this->len = len;
 }
 
+EdgeCollection::~EdgeCollection()
+{
+	delete[] this->edges;
+}
+
 Edge* EdgeCollection::get_edges()
 {
 	return this->edges;

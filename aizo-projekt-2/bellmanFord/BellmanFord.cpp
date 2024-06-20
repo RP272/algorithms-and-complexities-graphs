@@ -9,6 +9,12 @@ BellmanFord::BellmanFord(Graph& graph)
 	this->p = new int[graph.get_vertices_len()];
 }
 
+BellmanFord::~BellmanFord()
+{
+	delete[] this->d;
+	delete[] this->p;
+}
+
 void BellmanFord::run(Graph& graph, int starting_index)
 {
 	int n = graph.get_vertices_len();
@@ -40,6 +46,7 @@ void BellmanFord::run(Graph& graph, int starting_index)
 		}
 		if (any_updates == false) break;
 	}
+	delete edge_collection;
 }
 
 int* BellmanFord::get_d()

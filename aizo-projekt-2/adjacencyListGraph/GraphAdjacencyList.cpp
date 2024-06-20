@@ -21,6 +21,24 @@ GraphAdjacencyList::GraphAdjacencyList(GraphFromFile* graph, bool directed)
 	}
 }
 
+GraphAdjacencyList::~GraphAdjacencyList()
+{
+	SuccessorNode* current;
+	SuccessorNode* next = nullptr;
+	for (int i = 0; i < this->vertices_len; i++)
+	{
+		current = this->successor_list[i];
+		while (current->get_id() != -1)
+		{
+			next = current->get_next();
+			delete current;
+			current = next;
+		}
+		delete current;
+	}
+	delete[] this->successor_list;
+}
+
 GraphAdjacencyList::GraphAdjacencyList(int number_of_vertices, int number_of_edges, bool directed)
 {
 	this->vertices_len = number_of_vertices;

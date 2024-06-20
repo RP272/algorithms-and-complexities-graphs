@@ -6,6 +6,7 @@ class IterableNeighborCollection
 {
 public:
 	virtual NeighborIterator& createIterator() = 0;
+	virtual void destroy() = 0;
 };
 
 #endif

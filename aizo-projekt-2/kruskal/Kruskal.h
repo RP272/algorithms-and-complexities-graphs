@@ -11,6 +11,7 @@ private:
 	EdgeCollection* edge_collection;
 public:
 	Kruskal(Graph& graph);
+	~Kruskal();
 	void run(Graph& graph);
 	void MakeSet(int v);
 	int FindSet(int v);

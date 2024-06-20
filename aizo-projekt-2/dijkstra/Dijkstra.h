@@ -11,6 +11,7 @@ private:
 	int* map;
 public:
 	Dijkstra(Graph &graph);
+	~Dijkstra();
 	void run(Graph &graph, int starting_vertex);
 	HeapNode* get_dijkstra_nodes();
 	int* get_p();

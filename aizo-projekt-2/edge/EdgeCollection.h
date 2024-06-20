@@ -9,6 +9,7 @@ private:
 	int len;
 public:
 	EdgeCollection(Edge* edges, int len);
+	~EdgeCollection();
 	Edge* get_edges();
 	int get_len();
 	void quicksort(int l, int p);
